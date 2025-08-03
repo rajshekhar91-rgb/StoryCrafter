@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryCrafter</title>
+    <meta name="description" content="Generate creative stories from a list of words using the power of AI. Bring your imagination to life with StoryCrafter.">
+    <meta name="theme-color" content="#6A5ACD">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="app-container" class="p-4 sm:p-8">
+        <header class="w-full flex justify-between items-center mb-8">
+            <h1 class="text-3xl sm:text-4xl">StoryCrafter</h1>
+        </header>
+
+        <main>
+            <div class="main-card mb-12">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="text" id="word-input" class="w-full p-3 text-lg" placeholder="Give me words...">
+                    <button id="generate-btn" class="flex-shrink-0 flex items-center justify-center">
+                        <i data-lucide="sparkles" class="mr-2 h-5 w-5"></i> Write ✍
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <aside id="history-panel">
+            <h3 class="text-2xl font-bold mb-4">History</h3>
+            <div id="history-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- History items will be injected here -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Story Output Modal -->
+    <div id="story-output-modal">
+        <div class="story-card" role="dialog" aria-modal="true" aria-labelledby="story-heading">
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="story-heading" class="text-2xl font-bold">Your Story</h2>
+                <button id="close-modal-btn" class="p-2" aria-label="Close story">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <div id="story-content-area" class="mb-6">
+                <div id="loading-indicator" class="progress-indicator my-8">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <span class="ml-2">Crafting your tale...</span>
+                </div>
+                <div id="story-content" class="prose dark:prose-invert"></div>
+            </div>
+
+            <div class="util-buttons flex gap-3">
+                <button id="copy-btn" aria-label="Copy story"><i data-lucide="copy"></i></button>
+                <button id="save-btn" aria-label="Save story"><i data-lucide="save"></i></button>
+                <button id="share-btn" aria-label="Share story"><i data-lucide="share-2"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
